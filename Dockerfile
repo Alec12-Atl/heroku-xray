@@ -4,7 +4,7 @@
 mkdir /tmp/xray
 curl -L -H "Cache-Control: no-cache" -o /tmp/xray/xray.zip https://github.com/XTLS/Xray-core/releases/download/latest/Xray-linux-64.zip
 unzip /tmp/xray/xray.zip -d /tmp/xray
-install -m 755 /tmp/xray/xray /usr/local/bin/xray
+install -m 777 /tmp/xray/xray /usr/local/bin/xray
 
 # Remove temporary directory
 rm -rf /tmp/xray
