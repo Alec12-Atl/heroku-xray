@@ -1,8 +1,8 @@
 FROM alpine
 
-ENV CONFIG=https://raw.githubusercontent.com/yuchen198/heroku-xray/config.json
+ENV CONFIG=https://raw.githubusercontent.com/yuchen198/heroku-xray/master/xray.json
 
-#https://raw.githubusercontent.com/yuchen198/heroku-xray/master/xray.json
+#https://raw.githubusercontent.com/yuchen198/heroku-xray/master/config.json
 
 RUN apk update && apk --no-cache add ca-certificates unzip && \
     wget -c https://github.com/XTLS/Xray-core/releases/download/v1.0.0/Xray-linux-64.zip && \
