@@ -37,8 +37,8 @@
             "settings": {
                 "vnext": [
                     {
-                        "address": "www.google.com",
-                        "port": 1234,
+                        "address": "$Address",
+                        "port": 443,
                         "users": [
                             {
                                 "id": "$UUID",
