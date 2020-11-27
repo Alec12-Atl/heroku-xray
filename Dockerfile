@@ -1,49 +1,7 @@
-#!/bin/sh
+FROM alpine:latest
 
-# Download and install xray
-mkdir /tmp/xray
-curl -L -H "Cache-Control: no-cache" -o /tmp/xray/xray.zip https://github.com/XTLS/Xray-core/releases/download/latest/Xray-linux-64.zip
-unzip /tmp/xray/xray.zip -d /tmp/xray
-install -m 777 /tmp/xray/xray /usr/local/bin/xray
+RUN apk add --no-cache --virtual .build-deps ca-certificates curl unzip
 
-# Remove temporary directory
-rm -rf /tmp/xray
-
-# xray new configuration
-install -d /usr/local/etc/xray
-cat << EOF > /usr/local/etc/xray/config.json
-{
-  "log": {
-    "loglevel": "none"
-  },
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "VLESS",
-      "settings": {
-        "clients": [
-          {
-            "id": "$UUID",
-            "alterId": 0
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/app"
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
-}
-EOF
-
-# Run xray
-/usr/local/bin/xray -config /usr/local/etc/xray/config.json
+ADD configure.sh /configure.sh
+RUN chmod +x /configure.sh
+CMD /configure.sh
