@@ -8,7 +8,12 @@
     "UUID": {
       "description": "VLESS UUID",
       "value": "3a53a3e5-da83-48d2-aee9-d88a498eb3dd"
-    }
+    },
+"Address": {
+"description": "VLESS Address",
+"value": "xray.herokuapp.com"
+}
+
   },
   "website": "https://github.com/GeekNAUer/",
   "repository": "https://github.com/GeekNAUer/vlessheroku",
