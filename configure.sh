@@ -52,7 +52,7 @@ cat << EOF > /usr/local/etc/xray/config.json
                 "vnext": [
                     {
                         "address": "$Address",
-                        "port": 1234,
+                        "port": 443,
                         "users": [
                             {
                                 "id": "$UUID",
